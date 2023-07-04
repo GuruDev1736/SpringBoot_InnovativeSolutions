@@ -1,11 +1,11 @@
 package com.InnovativeSolutions.project.Repository;
 
-import com.InnovativeSolutions.project.Model.Roles;
+import com.InnovativeSolutions.project.Model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface RoleRepository extends JpaRepository<Roles,Long> {
+public interface RoleRepository extends JpaRepository<Role,Long> {
 
-    Optional<Roles> findByName(String name);
+    Optional<Role> findByName(String name);
 }

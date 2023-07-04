@@ -16,7 +16,7 @@ import java.util.Set;
 @Table(
     name = "Users"
 )
-public class Users {
+public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,7 @@ public class Users {
 
     @ManyToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles" , joinColumns = @JoinColumn(name = "user_id" , referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id" , referencedColumnName = "id"))
-    private Set<Roles> roles ;
+    private Set<Role> roles ;
 
 
 
