@@ -13,6 +13,8 @@ public interface RealTimeDevelopementService {
 
     RealTimeDevelopmentDTO getRtdById(Long RTDId);
 
+    void deleteall();
+
     void deleteById (Long RTDId);
 
 }

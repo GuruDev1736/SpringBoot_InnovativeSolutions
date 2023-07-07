@@ -46,4 +46,11 @@ public class RealTimeDevelopmentController {
         return new ResponseEntity<>("The Realtime Developement Project with id "+RTDId+" has Deleted",HttpStatus.OK);
     }
 
+    @DeleteMapping("/all")
+    public ResponseEntity<String> deleteall ()
+    {
+        realTimeDevelopementService.deleteall();
+        return new ResponseEntity<>("All Real Time Development has deleted",HttpStatus.OK);
+    }
+
 }

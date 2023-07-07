@@ -57,6 +57,14 @@ public class CategoryController {
         return new ResponseEntity<>("All Categories has been deleted",HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<CategoryDTO> updatecategory(@RequestBody CategoryDTO categoryDTO , @PathVariable(name = "id") Long categoryId)
+    {
+        CategoryDTO update = categoryService.updatecategoy(categoryDTO,categoryId);
+        return new ResponseEntity<>(update,HttpStatus.OK);
+    }
+
 
 
 }

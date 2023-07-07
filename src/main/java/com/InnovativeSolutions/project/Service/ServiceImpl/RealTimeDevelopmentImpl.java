@@ -66,6 +66,11 @@ public class RealTimeDevelopmentImpl implements RealTimeDevelopementService {
     @Override
     public List<RealTimeDevelopmentDTO> getallRTD() {
 
+        if (realTimeDevelopementRepository.count()==0)
+        {
+            throw new ApplicationException(HttpStatus.OK,"Nothing to get");
+        }
+
         List<RealTimeDevelopment> realTimeDevelopmentList = realTimeDevelopementRepository.findAll();
 
         return realTimeDevelopmentList.stream().map((realTimeDevelopment -> mapper.map(realTimeDevelopment,RealTimeDevelopmentDTO.class))).collect(Collectors.toList());
@@ -73,6 +78,11 @@ public class RealTimeDevelopmentImpl implements RealTimeDevelopementService {
 
     @Override
     public RealTimeDevelopmentDTO getRtdById(Long RTDId) {
+
+        if (realTimeDevelopementRepository.count()==0)
+        {
+            throw new ApplicationException(HttpStatus.OK,"Nothing to get");
+        }
 
         RealTimeDevelopment realTimeDevelopment = realTimeDevelopementRepository.findById(RTDId)
                 .orElseThrow(()->new ResourceNotFoundException("Realtime Development Project","id",RTDId));
@@ -82,7 +92,21 @@ public class RealTimeDevelopmentImpl implements RealTimeDevelopementService {
     }
 
     @Override
+    public void deleteall() {
+        if (realTimeDevelopementRepository.count()==0)
+        {
+            throw new ApplicationException(HttpStatus.OK,"Nothing to get");
+        }
+        realTimeDevelopementRepository.deleteAll();
+    }
+
+    @Override
     public void deleteById(Long RTDId) {
+
+        if (realTimeDevelopementRepository.count()==0)
+        {
+            throw new ApplicationException(HttpStatus.OK,"Nothing to get");
+        }
 
         RealTimeDevelopment realTimeDevelopment = realTimeDevelopementRepository.findById(RTDId)
                 .orElseThrow(()->new ResourceNotFoundException("Realtime Development Project","id",RTDId));
