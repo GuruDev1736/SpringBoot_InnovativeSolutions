@@ -30,5 +30,6 @@ public class BuyProjectDTO {
     private String devWebsite;
     @Email
     private String email;
+    private Set<ProjectReviewsDTO> projectReviews;
 
 }

@@ -86,6 +86,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deletecategorybyid(Long categoryid) {
 
+        if (categoryRepository.count()==0)
+        {
+            throw new ApplicationException(HttpStatus.OK,"Nothing to delete");
+        }
+
         Category category =categoryRepository.findById(categoryid)
                 .orElseThrow(()->new ResourceNotFoundException("Category","id",categoryid));
 

@@ -8,5 +8,5 @@ public interface RealTimeDevelopementRepository extends JpaRepository<RealTimeDe
 
     boolean existsByTopicAndEmail(String topic , String email);
 
-            
+    long count();
 }

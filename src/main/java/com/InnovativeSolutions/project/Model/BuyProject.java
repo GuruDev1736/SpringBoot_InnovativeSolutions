@@ -62,4 +62,7 @@ public class BuyProject {
     @Column(nullable = false)
     private String email ;
 
+    @OneToMany(mappedBy = "review",cascade = CascadeType.ALL,orphanRemoval = true)
+    private Set<ProjectReviews> projectReviews = new HashSet<>();
+
 }
