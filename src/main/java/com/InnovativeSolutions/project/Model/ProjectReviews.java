@@ -28,6 +28,6 @@ public class ProjectReviews {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "projectId" , nullable = false)
-    private BuyProject review;
+        private BuyProject review;
 
 }
