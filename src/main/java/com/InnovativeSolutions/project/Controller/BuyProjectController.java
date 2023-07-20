@@ -61,4 +61,13 @@ public class BuyProjectController {
         buyProjectService.deleteall();
         return new ResponseEntity<>("All Projects Has been deleted",HttpStatus.OK);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<BuyProject>> search (@RequestParam("query") String query)
+    {
+        return new ResponseEntity<>(buyProjectService.search(query),HttpStatus.OK);
+    }
+
+
+
 }

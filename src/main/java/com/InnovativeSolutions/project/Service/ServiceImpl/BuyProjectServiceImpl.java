@@ -48,6 +48,14 @@ public class BuyProjectServiceImpl implements BuyProjectService {
     }
 
     @Override
+    public List<BuyProject> search(String query) {
+
+        List<BuyProject> buyProjects = buyProjectRepository.searchBuyProjectSQL(query);
+
+        return buyProjects;
+    }
+
+    @Override
     public BuyProjectDTO getProjectById(Long projectId) {
 
         if (buyProjectRepository.count()==0)
